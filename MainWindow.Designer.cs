@@ -238,7 +238,6 @@ namespace AdvancedOOPProject
             this.ClearFiltersBtn.TabIndex = 21;
             this.ClearFiltersBtn.Text = "Clear";
             this.ClearFiltersBtn.UseVisualStyleBackColor = true;
-
             // 
             // TypeFilterCBox
             // 
@@ -321,7 +320,6 @@ namespace AdvancedOOPProject
             this.FilterBtn.TabIndex = 24;
             this.FilterBtn.Text = "Filter";
             this.FilterBtn.UseVisualStyleBackColor = true;
-
             // 
             // AddRowBtn
             // 
@@ -331,7 +329,7 @@ namespace AdvancedOOPProject
             this.AddRowBtn.TabIndex = 25;
             this.AddRowBtn.Text = "Add new";
             this.AddRowBtn.UseVisualStyleBackColor = true;
-
+            this.AddRowBtn.Click += new System.EventHandler(this.AddRowBtn_Click);
             // 
             // DeleteRowsBtn
             // 

@@ -19,6 +19,10 @@ namespace AdvancedOOPProject
 
         }
 
-       
+        private void AddRowBtn_Click(object sender, EventArgs e)
+        {
+            AddNewForm AddNew = new AddNewForm();
+            AddNew.ShowDialog();
+        }
     }
 }
