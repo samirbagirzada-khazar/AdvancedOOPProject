@@ -102,6 +102,48 @@ namespace AdvancedOOPProject
                 else MessageBox.Show("No data!");
             }
 
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
-}
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (System.IO.StreamWriter file =
+           new System.IO.StreamWriter(@"C:\Users\Public\TestFolder\WriteLines2.txt", false))
+            {
+                foreach(PharmacyItem pItem in PharmacyItems) { file.WriteLine(String.Format("{0}",pItem.AsString())); }
+      
+            }
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string line;
+            List<PharmacyItem> TempPharmacyItems = new List<PharmacyItem>();
+            // Read the file and display it line by line.  
+            System.IO.StreamReader file =
+                new System.IO.StreamReader(@"C:\Users\Public\TestFolder\WriteLines2.txt");
+            while ((line = file.ReadLine()) != null)
+            {
+                try
+                {
+                    if (line.Trim().StartsWith("<")&&line.Trim().EndsWith(">")){ 
+                    PharmacyItem pItem = new PharmacyItem().ParseItem(line.Trim());
+                    TempPharmacyItems.Add(pItem);
+                }
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.ToString());
+                    throw;
+                }
+      
+            }
+            PharmacyItems = TempPharmacyItems;
+            file.Close();
+            RefreshGrid();
+        }
+    }
+    }
+
