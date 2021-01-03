@@ -37,8 +37,8 @@ namespace AdvancedOOPProject
             this.label1 = new System.Windows.Forms.Label();
             this.IdFilterTBox = new System.Windows.Forms.TextBox();
             this.NameFilterTBox = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.PriceFilterTBox = new System.Windows.Forms.TextBox();
+            this.UnitFilterTBox = new System.Windows.Forms.TextBox();
             this.PDateDBox = new System.Windows.Forms.DateTimePicker();
             this.ExpDateDBox = new System.Windows.Forms.DateTimePicker();
             this.IdFilterCBox = new System.Windows.Forms.CheckBox();
@@ -47,7 +47,7 @@ namespace AdvancedOOPProject
             this.ExpDateFilterCBox = new System.Windows.Forms.CheckBox();
             this.UnitFilterCBox = new System.Windows.Forms.CheckBox();
             this.PDateFilterCBox = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.TypeFilterCmBox = new System.Windows.Forms.ComboBox();
             this.ClearFiltersBtn = new System.Windows.Forms.Button();
             this.TypeFilterCBox = new System.Windows.Forms.CheckBox();
             this.ShopDataGrid = new System.Windows.Forms.DataGridView();
@@ -63,7 +63,8 @@ namespace AdvancedOOPProject
             this.DeleteRowsBtn = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.sizelabel = new System.Windows.Forms.Label();
             this.MainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShopDataGrid)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -130,19 +131,19 @@ namespace AdvancedOOPProject
             this.NameFilterTBox.Size = new System.Drawing.Size(100, 20);
             this.NameFilterTBox.TabIndex = 3;
             // 
-            // textBox3
+            // PriceFilterTBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(261, 58);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(42, 20);
-            this.textBox3.TabIndex = 6;
+            this.PriceFilterTBox.Location = new System.Drawing.Point(261, 58);
+            this.PriceFilterTBox.Name = "PriceFilterTBox";
+            this.PriceFilterTBox.Size = new System.Drawing.Size(42, 20);
+            this.PriceFilterTBox.TabIndex = 6;
             // 
-            // textBox4
+            // UnitFilterTBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(328, 58);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(44, 20);
-            this.textBox4.TabIndex = 8;
+            this.UnitFilterTBox.Location = new System.Drawing.Point(328, 58);
+            this.UnitFilterTBox.Name = "UnitFilterTBox";
+            this.UnitFilterTBox.Size = new System.Drawing.Size(44, 20);
+            this.UnitFilterTBox.TabIndex = 8;
             // 
             // PDateDBox
             // 
@@ -222,13 +223,13 @@ namespace AdvancedOOPProject
             this.PDateFilterCBox.Text = "Production date";
             this.PDateFilterCBox.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // TypeFilterCmBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(384, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 20;
+            this.TypeFilterCmBox.FormattingEnabled = true;
+            this.TypeFilterCmBox.Location = new System.Drawing.Point(384, 58);
+            this.TypeFilterCmBox.Name = "TypeFilterCmBox";
+            this.TypeFilterCmBox.Size = new System.Drawing.Size(121, 21);
+            this.TypeFilterCmBox.TabIndex = 20;
             // 
             // ClearFiltersBtn
             // 
@@ -238,6 +239,7 @@ namespace AdvancedOOPProject
             this.ClearFiltersBtn.TabIndex = 21;
             this.ClearFiltersBtn.Text = "Clear";
             this.ClearFiltersBtn.UseVisualStyleBackColor = true;
+            this.ClearFiltersBtn.Click += new System.EventHandler(this.ClearFiltersBtn_Click);
             // 
             // TypeFilterCBox
             // 
@@ -339,12 +341,12 @@ namespace AdvancedOOPProject
             this.DeleteRowsBtn.TabIndex = 26;
             this.DeleteRowsBtn.Text = "Delete";
             this.DeleteRowsBtn.UseVisualStyleBackColor = true;
+            this.DeleteRowsBtn.Click += new System.EventHandler(this.DeleteRowsBtn_Click);
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripProgressBar1});
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 467);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(739, 22);
@@ -357,16 +359,30 @@ namespace AdvancedOOPProject
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel1.Text = "Status";
             // 
-            // toolStripProgressBar1
+            // label2
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 388);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Number of items: \r\n";
+            // 
+            // sizelabel
+            // 
+            this.sizelabel.AutoSize = true;
+            this.sizelabel.Location = new System.Drawing.Point(103, 388);
+            this.sizelabel.Name = "sizelabel";
+            this.sizelabel.Size = new System.Drawing.Size(0, 13);
+            this.sizelabel.TabIndex = 29;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(739, 489);
+            this.Controls.Add(this.sizelabel);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.DeleteRowsBtn);
             this.Controls.Add(this.AddRowBtn);
@@ -374,7 +390,7 @@ namespace AdvancedOOPProject
             this.Controls.Add(this.ShopDataGrid);
             this.Controls.Add(this.TypeFilterCBox);
             this.Controls.Add(this.ClearFiltersBtn);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.TypeFilterCmBox);
             this.Controls.Add(this.PDateFilterCBox);
             this.Controls.Add(this.UnitFilterCBox);
             this.Controls.Add(this.ExpDateFilterCBox);
@@ -383,8 +399,8 @@ namespace AdvancedOOPProject
             this.Controls.Add(this.IdFilterCBox);
             this.Controls.Add(this.ExpDateDBox);
             this.Controls.Add(this.PDateDBox);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.UnitFilterTBox);
+            this.Controls.Add(this.PriceFilterTBox);
             this.Controls.Add(this.NameFilterTBox);
             this.Controls.Add(this.IdFilterTBox);
             this.Controls.Add(this.label1);
@@ -411,8 +427,8 @@ namespace AdvancedOOPProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox IdFilterTBox;
         private System.Windows.Forms.TextBox NameFilterTBox;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox PriceFilterTBox;
+        private System.Windows.Forms.TextBox UnitFilterTBox;
         private System.Windows.Forms.DateTimePicker PDateDBox;
         private System.Windows.Forms.DateTimePicker ExpDateDBox;
         private System.Windows.Forms.CheckBox IdFilterCBox;
@@ -421,7 +437,7 @@ namespace AdvancedOOPProject
         private System.Windows.Forms.CheckBox ExpDateFilterCBox;
         private System.Windows.Forms.CheckBox UnitFilterCBox;
         private System.Windows.Forms.CheckBox PDateFilterCBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox TypeFilterCmBox;
         private System.Windows.Forms.Button ClearFiltersBtn;
         private System.Windows.Forms.CheckBox TypeFilterCBox;
         private System.Windows.Forms.DataGridView ShopDataGrid;
@@ -438,7 +454,8 @@ namespace AdvancedOOPProject
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label sizelabel;
     }
 }
 

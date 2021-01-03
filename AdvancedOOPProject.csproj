@@ -52,6 +52,7 @@
     <Compile Include="AddNewForm.Designer.cs">
       <DependentUpon>AddNewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
