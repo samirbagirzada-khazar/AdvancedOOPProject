@@ -195,7 +195,7 @@ namespace AdvancedOOPProject
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddNewForm";
-            this.Text = "AddNewForm";
+            this.Text = "Add new";
             this.Load += new System.EventHandler(this.AddNewForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

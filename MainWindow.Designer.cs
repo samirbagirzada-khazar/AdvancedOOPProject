@@ -30,10 +30,6 @@ namespace AdvancedOOPProject
         private void InitializeComponent()
         {
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.IdFilterTBox = new System.Windows.Forms.TextBox();
             this.NameFilterTBox = new System.Windows.Forms.TextBox();
@@ -65,55 +61,21 @@ namespace AdvancedOOPProject
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.sizelabel = new System.Windows.Forms.Label();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.MainMenuStrip.SuspendLayout();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.loadBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ShopDataGrid)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenuStrip
             // 
-            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.helpToolStripMenuItem});
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
             this.MainMenuStrip.Size = new System.Drawing.Size(739, 24);
             this.MainMenuStrip.TabIndex = 0;
             this.MainMenuStrip.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.closeToolStripMenuItem,
-            this.loadToolStripMenuItem,
-            this.saveToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // closeToolStripMenuItem
-            // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.closeToolStripMenuItem.Text = "Close";
-            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
             // 
             // label1
             // 
@@ -154,7 +116,8 @@ namespace AdvancedOOPProject
             // 
             // PDateDBox
             // 
-            this.PDateDBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.PDateDBox.CustomFormat = "MM/yyyy";
+            this.PDateDBox.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PDateDBox.Location = new System.Drawing.Point(514, 58);
             this.PDateDBox.Name = "PDateDBox";
             this.PDateDBox.Size = new System.Drawing.Size(89, 20);
@@ -162,7 +125,8 @@ namespace AdvancedOOPProject
             // 
             // ExpDateDBox
             // 
-            this.ExpDateDBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ExpDateDBox.CustomFormat = "MM/yyyy";
+            this.ExpDateDBox.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ExpDateDBox.Location = new System.Drawing.Point(643, 58);
             this.ExpDateDBox.Name = "ExpDateDBox";
             this.ExpDateDBox.Size = new System.Drawing.Size(89, 20);
@@ -276,6 +240,7 @@ namespace AdvancedOOPProject
             this.ShopDataGrid.Location = new System.Drawing.Point(0, 115);
             this.ShopDataGrid.Name = "ShopDataGrid";
             this.ShopDataGrid.ReadOnly = true;
+            this.ShopDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ShopDataGrid.Size = new System.Drawing.Size(739, 266);
             this.ShopDataGrid.TabIndex = 23;
             // 
@@ -329,6 +294,7 @@ namespace AdvancedOOPProject
             this.FilterBtn.TabIndex = 24;
             this.FilterBtn.Text = "Filter";
             this.FilterBtn.UseVisualStyleBackColor = true;
+            this.FilterBtn.Click += new System.EventHandler(this.FilterBtn_Click);
             // 
             // AddRowBtn
             // 
@@ -383,29 +349,37 @@ namespace AdvancedOOPProject
             this.sizelabel.Size = new System.Drawing.Size(0, 13);
             this.sizelabel.TabIndex = 29;
             // 
-            // loadToolStripMenuItem
-            // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadToolStripMenuItem.Text = "Load";
-            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Location = new System.Drawing.Point(0, 0);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveBtn.TabIndex = 30;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // loadBtn
+            // 
+            this.loadBtn.Location = new System.Drawing.Point(81, 0);
+            this.loadBtn.Name = "loadBtn";
+            this.loadBtn.Size = new System.Drawing.Size(78, 24);
+            this.loadBtn.TabIndex = 31;
+            this.loadBtn.Text = "Load";
+            this.loadBtn.UseVisualStyleBackColor = true;
+            this.loadBtn.Click += new System.EventHandler(this.loadBtn_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(739, 489);
+            this.Controls.Add(this.loadBtn);
+            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.sizelabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.statusStrip1);
@@ -431,10 +405,8 @@ namespace AdvancedOOPProject
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MainMenuStrip);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Text = "Pharmacy";
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.MainMenuStrip.ResumeLayout(false);
-            this.MainMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShopDataGrid)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -446,9 +418,6 @@ namespace AdvancedOOPProject
         #endregion
 
         private System.Windows.Forms.MenuStrip MainMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox IdFilterTBox;
         private System.Windows.Forms.TextBox NameFilterTBox;
@@ -476,15 +445,14 @@ namespace AdvancedOOPProject
         private System.Windows.Forms.Button FilterBtn;
         private System.Windows.Forms.Button AddRowBtn;
         private System.Windows.Forms.Button DeleteRowsBtn;
-        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label sizelabel;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button loadBtn;
     }
 }
 
